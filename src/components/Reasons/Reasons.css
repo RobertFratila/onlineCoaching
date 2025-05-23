@@ -1,0 +1,164 @@
+.reasons {
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+/* Left Section - Image Grid */
+.left-r {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-100px);  /* Start off-screen to the left */
+    transition: all 1s ease-in-out;
+}
+
+.left-r.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.image-grid img {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Image sizes */
+.img-large {
+    grid-column: span 2;
+    height: 28rem;
+}
+
+.img-medium {
+    height: 19rem;
+}
+
+.img-small {
+    height: 15rem;
+}
+
+/* Right Section */
+.right-r {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif; /* Using a more modern, readable font */
+    font-weight: 400; /* Normal font weight for better readability */
+    line-height: 1.7; /* Increased line height for better text separation */
+    color: #f0f0f0; /* Light gray text for contrast without being harsh */
+    opacity: 0;
+    transform: translateX(+100px);  /* Start off-screen to the left */
+    transition: all 1s ease-in-out;
+}
+
+.right-r.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Title */
+.right-r > span {
+    font-weight: bold;
+    color: var(--orange);
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+/* Heading */
+.right-r > div {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: bold;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Details Section */
+.details-r {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+/* Individual Detail Item */
+.details-r > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2rem; /* Slightly bigger text for easier reading */
+    color: #f0f0f0; /* Light color for text */
+    line-height: 1.8; /* A bit more spacing between lines for clarity */
+    font-weight: 400; /* Regular weight for better legibility */
+    text-align: justify; /* Text is justified, stretched evenly across the width */
+    margin-left: 1rem; /* Indentation to make it more refined */
+    text-indent: 1.5rem; /* First line indent for clean flow */
+    padding-right: 1rem; /* Adds right padding for better spacing */
+}
+
+.motivational-text > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.2rem; /* Slightly bigger text for easier reading */
+    color: #f0f0f0; /* Light color for text */
+    line-height: 1.5; /* A bit more spacing between lines for clarity */
+    font-weight: 400; /* Regular weight for better legibility */
+    text-align: justify; /* Text is justified, stretched evenly across the width */
+    margin-left: 1rem; /* Indentation to make it more refined */
+    text-indent: 1.5rem; /* First line indent for clean flow */
+    padding-right: 1rem; /* Adds right padding for better spacing */
+}
+
+/* Optional: Add more subtle margin for a clean flow */
+.details-r > div::before {
+    content: "";
+    display: block;
+    margin-bottom: 0.5rem; /* Adds a bit of spacing between lines for readability */
+}
+
+/* Optional: Add box shadow to section for depth */
+.right-r {
+    background-color: #2c2c2c; /* Dark background to make the text pop */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow to make it stand out */
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .reasons {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .img-large, .img-medium, .img-small {
+        height: auto;
+    }
+
+    .details-r {
+        align-items: center;
+    }
+
+    .partners {
+        justify-content: center;
+    }
+}
