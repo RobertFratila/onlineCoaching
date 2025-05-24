@@ -1,115 +1,291 @@
-.testimonials{
+.testimonials {
     display: flex;
-    gap: 1rem;
-    padding: 0 2rem;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: 20vh;
+    align-items: center;
 }
 
-.left-t{
+.left-t {
     display: flex;
     flex: 1 1;
     gap: 2rem;
     flex-direction: column;
     text-transform: uppercase;
     color: white;
+    max-width: 100%;
 }
 
-.left-t>:nth-child(1){
+.left-t > :nth-child(1) {
     color: var(--orange);
     font-weight: bold;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
-.left-t>:nth-child(2){
+.left-t > :nth-child(2) {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.2;
 }
 
-.left-t>:nth-child(3){
+.left-t > :nth-child(3) {
     font-weight: bold;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: var(--orange);
+    line-height: 1.2;
 }
 
-.left-t>:nth-child(4){
+.left-t > :nth-child(4) {
     text-transform: none;
     text-align: justify;
-    letter-spacing: 2px;
-    line-height: 40px;
+    letter-spacing: 1px;
+    line-height: clamp(1.6, 2.5vw, 2.5);
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
-.right-t{
+.left-t > :nth-child(5) {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.4;
+}
+
+.right-t {
     flex: 1;
     position: relative;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.right-t>img{
+.right-t > img {
     position: absolute;
-    width: 20rem;
-    height: 23rem;
+    width: clamp(15rem, 25vw, 20rem);
+    height: clamp(18rem, 30vw, 23rem);
     object-fit: cover;
-    right: 13rem;
+    right: clamp(8rem, 15vw, 13rem);
     top: 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
-.right-t>:nth-child(1){
+.right-t > :nth-child(1) {
     position: absolute;
-    width: 20rem;
-    height: 23rem;
+    width: clamp(15rem, 25vw, 20rem);
+    height: clamp(18rem, 30vw, 23rem);
     border: 2px solid orange;
     background-color: transparent;
-    right: 15rem;
+    right: clamp(9rem, 17vw, 15rem);
     top: 0.9rem;
+    border-radius: 8px;
 }
 
-.right-t>:nth-child(2){
+.right-t > :nth-child(2) {
     position: absolute;
-    width: 20rem;
-    height: 23rem;
-    right: 11rem;
+    width: clamp(15rem, 25vw, 20rem);
+    height: clamp(18rem, 30vw, 23rem);
+    right: clamp(6rem, 12vw, 11rem);
     top: 4rem;
     background: var(--planCard);
+    border-radius: 8px;
 }
 
-.arrows{
+.arrows {
     display: flex;
     gap: 1rem;
     position: absolute;
     bottom: 1rem;
-    left: 3rem;
+    left: clamp(1rem, 5vw, 3rem);
+    z-index: 10;
 }
 
-.arrows>img{
-    width: 1.5rem;
+.arrows > img {
+    width: clamp(1.2rem, 3vw, 1.5rem);
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-@media screen and (max-width: 768px){
-    .testimonials{
+.arrows > img:hover {
+    transform: scale(1.1);
+}
+
+/* Tablet Responsive Design */
+@media screen and (max-width: 1024px) {
+    .testimonials {
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .right-t > img {
+        right: clamp(5rem, 10vw, 8rem);
+    }
+    
+    .right-t > :nth-child(1) {
+        right: clamp(6rem, 12vw, 9rem);
+    }
+    
+    .right-t > :nth-child(2) {
+        right: clamp(3rem, 8vw, 6rem);
+    }
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .testimonials {
         flex-direction: column;
+        padding: 1rem;
+        gap: 2rem;
+        min-height: auto;
     }
-    .left-t>:nth-child(2),
-    .left-t>:nth-child(3){
-        font-size: xx-large;
+    
+    .left-t {
+        text-align: center;
+        gap: 1.5rem;
     }
-    .right-t{
+    
+    .left-t > :nth-child(4) {
+        text-align: left;
+        letter-spacing: 0.5px;
+        padding: 0 1rem;
+    }
+    
+    .right-t {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 2rem;
-    }
-    .right-t>div{
         position: relative;
+        min-height: 300px;
+    }
+    
+    .right-t > div {
         display: none;
     }
-    .right-t>img{
+    
+    .right-t > img {
+        position: relative;
         top: 0;
         right: 0;
-        position: relative;
         align-self: center;
+        width: clamp(12rem, 80vw, 18rem);
+        height: clamp(15rem, 100vw, 22rem);
+        max-width: 300px;
     }
-    .right-t>:last-child{
-        display: block;
+    
+    .arrows {
+        position: relative;
         bottom: 0;
         left: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .testimonials {
+        padding: 0.5rem;
+        gap: 1.5rem;
+    }
+    
+    .left-t {
+        gap: 1rem;
+    }
+    
+    .left-t > :nth-child(4) {
+        padding: 0 0.5rem;
+        letter-spacing: 0px;
+    }
+    
+    .right-t > img {
+        width: clamp(10rem, 90vw, 15rem);
+        height: clamp(12rem, 110vw, 18rem);
+    }
+    
+    .arrows > img {
+        width: 1.2rem;
+    }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1400px) {
+    .testimonials {
+        padding: 3rem;
+        gap: 3rem;
+    }
+    
+    .left-t {
+        gap: 2.5rem;
+    }
+    
+    .right-t > img {
+        width: 22rem;
+        height: 25rem;
+        right: 15rem;
+    }
+    
+    .right-t > :nth-child(1) {
+        width: 22rem;
+        height: 25rem;
+        right: 17rem;
+    }
+    
+    .right-t > :nth-child(2) {
+        width: 22rem;
+        height: 25rem;
+        right: 13rem;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .testimonials {
+        flex-direction: row;
+        min-height: 100vh;
+        align-items: center;
+    }
+    
+    .left-t {
+        text-align: left;
+        gap: 1rem;
+    }
+    
+    .left-t > :nth-child(4) {
+        text-align: justify;
+        padding: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .right-t {
+        min-height: 250px;
+    }
+    
+    .right-t > img {
+        width: 12rem;
+        height: 15rem;
+        right: 6rem;
+        top: 1rem;
+    }
+    
+    .right-t > :nth-child(1) {
+        width: 12rem;
+        height: 15rem;
+        right: 7rem;
+        top: 0.5rem;
+    }
+    
+    .right-t > :nth-child(2) {
+        width: 12rem;
+        height: 15rem;
+        right: 4rem;
+        top: 2rem;
+    }
+    
+    .arrows {
+        bottom: 0.5rem;
+        left: 1rem;
     }
 }
